@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
     int const k = 6;
     int num_of_simulations = 100;
     
-    for (int i = 500; i<30000 ; i += 500) {// building N vector
+    for (int i = 1000; i<=10000 ; i += 1000) {// building N vector
       cout<<"building network with :" << i << "nodes" <<endl;
       huge_sum = 0;
       for (int j = 0 ; j < num_of_simulations ; j++){
@@ -39,4 +39,3 @@ int main(int argc, char **argv) {
     
     return 0;
 }
-

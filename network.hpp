@@ -1,4 +1,4 @@
-    #include <iostream>
+  #include <iostream>
     #include <vector>
     #include <time.h>
     #include <stdio.h>      /* printf, scanf, puts, NULL */
@@ -26,10 +26,8 @@
 	  k = K;
 	  
 	  //initializing empty vectors 
-	  for (int i=0; i<n ; i++){
-	    vector<int> v;
-	    adj_list.push_back(v);
-	  }
+	  adj_list.resize(n);
+	  
 	  srand(time(0));
 	  int r1,r2;
 	  for (int i=0; i<n*k/2; i++){
@@ -39,7 +37,9 @@
 	    if(!is_connected(r1,r2)  && r1!=r2){
 	      adj_list[r1].push_back(r2);
 	      adj_list[r2].push_back(r1);
+	      i++;
 	    }
+	    i--;
 	  }
 	}
 
@@ -69,8 +69,8 @@
       
       // memset(visited,0,sizeof visited);
       //memset(distance,-1,sizeof distance);
-      distance[0] = 0;
-      visited[0] = 1;
+      distance[s] = 0;
+      visited[s] = 1;
       queue <int> bfsq;
       bfsq.push(s);
       
@@ -102,63 +102,11 @@
       
       long double sum = 0, counter = 0;
       vector <long int> mpl_v;
-      for ( int i=0 ; i<n; i++){
+      for ( int i=0 ; i<0.2*n; i++){
 	
-	mpl_v = BFS(i);
+	mpl_v = BFS(rand()%n);
 	sum += mpl_v[0];
 	counter += mpl_v[1];
       }
       return (long double) sum/counter;
      }
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-      
-      
-     
